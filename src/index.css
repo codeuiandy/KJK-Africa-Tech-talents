@@ -17,7 +17,6 @@ body {
   width: 100vw;
   overflow: hidden;
   overflow-y: scroll;
-  /* background-color: pink; */
   box-sizing: border-box !important;
   width: 100vw;
   height: 100vh;
@@ -57,12 +56,17 @@ code {
 
 @font-face {
   font-family: generalFont;
-  src: url(./assets/fonts/fonta/Inter-Regular.ttf);
+  src: url(./assets/fonts/font/Biotif-Regular.ttf);
 }
 
 @font-face {
   font-family: boldFont;
-  src: url(./assets/fonts/fonta/Inter-Regular.ttf);
+  src: url(./assets/fonts/font/Biotif-Regular.ttf);
+}
+
+@font-face {
+  font-family: btn;
+  src: url(./assets/fonts/font/PlayfairDisplay-Regular.ttf);
 }
 
 * {
@@ -76,6 +80,10 @@ h4,
 h5,
 h6 {
   font-family: boldFont;
+}
+
+button {
+  font-family: btn;
 }
 
 .slick-list {

@@ -3,8 +3,7 @@ import { Redirect, Route } from "react-router-dom";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import "./layout.css";
-import Footer from "./footer";
-export default function Index({ children, ...props }) {
+export const SecuredRoutes = ({ children, ...props }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   return (
     <div className="app-wrapper">
@@ -12,14 +11,22 @@ export default function Index({ children, ...props }) {
         <Navbar />
       </div>
 
-      <div className="layout-children">
-        <div className="layout-ch">
+      <div className="layout-children-main app-padding ">
+        <Sidebar />
+        <div className="layout-ch-l">
           <Route {...props}>
-            {isAuthenticated ? children : <Redirect to="/signin" />}
+            {isAuthenticated ? children : <Redirect to="/" />}
           </Route>
-          <Footer />
         </div>
       </div>
     </div>
   );
-}
+};
+
+export const OpenRoutes = ({ children, ...props }) => {
+  return (
+    <div className="app-wrapper">
+      <Route {...props}>{children}</Route>
+    </div>
+  );
+};

@@ -1,30 +1,19 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import AuthRoute from "./components/layout/index";
-// import DashboardRoutes from './dashboard/';
+import { OpenRoutes, SecuredRoutes } from "./components/layout/index";
 import Home from "./screens/home/index";
-import Menu from './screens/menu'
-import Contact from './screens/contact'
+import Login from "./screens/auth/login";
 function Routes() {
   return (
     <Router>
       <Switch>
-        <AuthRoute exact path="/">
+        <OpenRoutes exact path="/">
+          <Login />
+        </OpenRoutes>
+
+        <SecuredRoutes exact path="/home">
           <Home />
-        </AuthRoute>
-
-        <AuthRoute exact path="/home">
-          <Home />
-        </AuthRoute>
-
-
-        <AuthRoute exact path="/menu">
-          <Menu />
-        </AuthRoute>
-
-        <AuthRoute exact path="/contact">
-          <Contact />
-        </AuthRoute>
+        </SecuredRoutes>
       </Switch>
     </Router>
   );
