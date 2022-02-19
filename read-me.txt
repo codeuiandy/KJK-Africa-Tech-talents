@@ -1,0 +1,7 @@
+#App created using REACT.JS
+
+#Made a reuseable component for inputs, modals and btns
+
+#basic form validation before a user can continue
+
+#A user cant navigate to other page, (eg >>> /home) route, without having to create an account

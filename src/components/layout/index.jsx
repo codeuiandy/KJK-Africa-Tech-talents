@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import "./layout.css";
 export const SecuredRoutes = ({ children, ...props }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+
+  useEffect(() => {
+    let valid = localStorage.getItem("valid");
+    console.log(valid);
+    if (valid == "true") {
+      return setIsAuthenticated(true);
+    }
+    setIsAuthenticated(false);
+  }, []);
   return (
     <div className="app-wrapper">
       <div className="app-navbar">

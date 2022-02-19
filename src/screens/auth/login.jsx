@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { EmailSvg, Logo } from "../../assets/svg";
 import { Input, Select } from "../../components/form/input";
 import Modals from "../../components/modal";
@@ -36,6 +36,10 @@ export default function Login() {
     setShowCreateNewProject(true);
     setComponentModal(!componentModal);
   };
+
+  useEffect(() => {
+    localStorage.setItem("valid", "false");
+  }, []);
   return (
     <div className="auth-wrap">
       <div className="auth-wrap-col1">
@@ -150,7 +154,8 @@ export default function Login() {
             </p>
             <button
               onClick={() => {
-                history.push("home");
+                localStorage.setItem("valid", "true");
+                history.push("/home");
                 NotificationManager.success(
                   `Wecome back ${user.firstName}`,
                   "Success"
